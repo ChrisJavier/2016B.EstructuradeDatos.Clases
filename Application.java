@@ -14,15 +14,15 @@ public class Application {
 		ListDouble.ListarAdelante();
 		System.out.println("\n");
 		ListDouble.ListarAtras();
-		
-		ListDouble.Remove(1);
+		ListDouble.InsertNewElementPerRefBefore(5, 2);
+		//ListDouble.Remove(1);
 		
 		System.out.println("\n");
 		ListDouble.ListarAdelante();
-		ListDouble.ListarAtras();
-		ListDouble.CleanList();
+		//ListDouble.ListarAtras();
+		//ListDouble.CleanList();
 		
-		ListDouble.ListarAdelante();
+		//ListDouble.ListarAdelante();
 		
 	}
 }

@@ -26,9 +26,6 @@ public class SLinkedDoble {
 			Node Aux=header;
 			while(Aux.getNext()!=null){
 				Aux=Aux.getNext();
-				if(Aux.getNext()!=null){
-					
-				}
 			}
 			if(size>=2){
 				New.setDato(dato);
@@ -152,16 +149,44 @@ public class SLinkedDoble {
 	public void InsertNewElementPerRefBefore(int dato,int ref){
 		
 		Node New= new Node(null,null,0);
-		Node Aux= new Node(null,null,0);
+		Node Aux=header;
+		Node Aux1=new Node(null,null,0);
+		
 		for(int i=0;i<size;i++)
 			if(Aux.getDato()==ref){
 				New.setDato(dato);
 				New.setNextLast(Aux.getNextLast());
 				New.setNext(Aux);
+				Aux1.setNext(New);
 				Aux.setNextLast(New);
-				
+				size++;
+				return;
 			}else{
+				Aux1=Aux;
 				Aux=Aux.getNext();
+				
+			}
+				
+	}
+	public void InsertNewElementPerRefLast(int dato,int ref){
+		
+		Node New= new Node(null,null,0);
+		Node Aux=header;
+		Node Aux1=new Node(null,null,0);
+		
+		for(int i=0;i<size;i++)
+			if(Aux.getDato()==ref){
+				New.setDato(dato);
+				New.setNextLast(Aux.getNextLast());
+				New.setNext(Aux);
+				Aux1.setNext(New);
+				Aux.setNextLast(New);
+				size++;
+				return;
+			}else{
+				Aux1=Aux;
+				Aux=Aux.getNext();
+				
 			}
 				
 	}
