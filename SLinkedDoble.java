@@ -103,15 +103,19 @@ public class SLinkedDoble {
 	}
 	public Node Search(int dato){
 		Node aux= new Node(null,null,0);
-		Node Find=null;
+		Node Find=new Node(null,null,0);
 		boolean encontrado=false;
 		aux= header;
 		while(aux !=null && encontrado!=true)
 		
 			if(aux.getDato()==dato){
 				Find=aux;
-				encontrado=true;}else{
-				aux.getNext();}
+				encontrado=true;
+				System.out.println("El elemento ha sido elimindado");
+				return Find;
+				}else{
+				aux.getNext();
+				}
 			
 			return null;
 		}
@@ -120,13 +124,14 @@ public class SLinkedDoble {
 		
 		header.setNext(null);
 		size=0;
+		System.out.println("La Lista esta vacia");
 	}
 	public void ListarAdelante(){
 		if(!IsEmpty()){
 			Node Aux= header;
 			int i=0;
 			while(Aux!=null){
-				System.out.println(i + "-["+Aux.getDato()+"]"+"-> ");
+				System.out.println(i +"-> "+ "["+Aux.getDato()+"]");
 			Aux= Aux.getNext();
 			i++;
 			}
@@ -137,7 +142,7 @@ public class SLinkedDoble {
 			Node Aux= trailer;
 			int i=0;
 			while(i!=size){
-				System.out.println((size-i) + "-["+Aux.getDato()+"]"+"-> ");
+				System.out.println((size-i-1) +"-> "+ "["+Aux.getDato()+"]");
 			Aux= Aux.getNextLast();
 			i++;
 			}
@@ -147,9 +152,11 @@ public class SLinkedDoble {
 	public void Remove(int dato){
 		
 		Node aux= Search(dato);
-		Node aux1=null;
+		Node aux1= new Node(null,null,0);
 		
-		if(aux==header){
+		if(aux==null)
+			System.out.println("no existe el dato");
+		if(aux.getDato()==header.getDato()){
 			header=header.getNext();
 			aux.setNext(null);
 			aux.setNextLast(null);

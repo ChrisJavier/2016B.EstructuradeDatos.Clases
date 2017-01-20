@@ -15,8 +15,14 @@ public class Application {
 		System.out.println("\n");
 		ListDouble.ListarAtras();
 		
+		ListDouble.Remove(1);
 		
+		System.out.println("\n");
+		ListDouble.ListarAdelante();
+		ListDouble.ListarAtras();
+		ListDouble.CleanList();
 		
+		ListDouble.ListarAdelante();
 		
 	}
 }
