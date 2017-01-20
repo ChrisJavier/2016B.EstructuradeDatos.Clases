@@ -149,6 +149,22 @@ public class SLinkedDoble {
 	}
 	}
 		
+	public void InsertNewElementPerRefBefore(int dato,int ref){
+		
+		Node New= new Node(null,null,0);
+		Node Aux= new Node(null,null,0);
+		for(int i=0;i<size;i++)
+			if(Aux.getDato()==ref){
+				New.setDato(dato);
+				New.setNextLast(Aux.getNextLast());
+				New.setNext(Aux);
+				Aux.setNextLast(New);
+				
+			}else{
+				Aux=Aux.getNext();
+			}
+				
+	}
 	public void Remove(int dato){
 		
 		Node aux= Search(dato);
