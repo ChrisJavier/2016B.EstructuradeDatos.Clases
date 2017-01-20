@@ -87,16 +87,8 @@ public class SLinkedDoble {
 	public void addLast(Node v){
 		addBefore(trailer, v);
 	}
-	public void Remove(Node v){
-		Node u= v.getNextLast();
-		Node w= v.getNext();
-		
-		w.setNextLast(u);
-		u.setNext(w);
-		v.setNextLast(null);
-		v.setNext(null);
-		size--;
-	}
+
+
 	public Node Search(int dato){
 		Node aux= new Node(null,null,0);
 		Node Find=new Node(null,null,0);
@@ -107,10 +99,9 @@ public class SLinkedDoble {
 			if(aux.getDato()==dato){
 				Find=aux;
 				encontrado=true;
-				System.out.println("El elemento ha sido elimindado");
 				return Find;
 				}else{
-				aux.getNext();
+				aux=aux.getNext();
 				}
 			
 			return null;
@@ -192,7 +183,6 @@ public class SLinkedDoble {
 	public void EditNode(int dato, int ref)
 	{
 		Node Aux=Search(ref);
-		
 		Aux.setDato(dato);
 	}
 	
@@ -207,11 +197,10 @@ public class SLinkedDoble {
 			aux.setNext(null);
 			aux.setNextLast(null);
 			size--;
+			System.out.println("El elemento ha sido elimindado");
 		}else if(aux==trailer){
 			trailer=trailer.getNextLast();
 			aux.setNext(null);
-		}
-	
-	
+		}	
 	}
 	}

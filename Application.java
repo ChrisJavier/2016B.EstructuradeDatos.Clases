@@ -1,4 +1,3 @@
-import java.io.LineNumberInputStream;
 
 public class Application {
 
@@ -14,7 +13,8 @@ public class Application {
 		ListDouble.ListarAdelante();
 		System.out.println("\n");
 		ListDouble.ListarAtras();
-		ListDouble.InsertNewElementPerRefLast(5, 2);
+		ListDouble.EditNode(6, 2);
+		//ListDouble.InsertNewElementPerRefLast(5, 2);
 		//ListDouble.InsertNewElementPerRefBefore(5, 2);
 		//ListDouble.Remove(1);
 		
