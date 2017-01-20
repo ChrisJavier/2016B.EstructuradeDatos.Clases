@@ -88,13 +88,43 @@ public class SLinkedDoble {
 		addBefore(trailer, v);
 	}
 
-
+	public void AddFirst(int dato){
+		
+		if(IsEmpty())
+			System.out.println("La Lista esta vacia");
+		
+		Node Aux=header;
+		Node New= new Node (null, null,0);
+		
+		New.setDato(dato);
+		New.setNext(Aux);
+		Aux.setNextLast(New);
+		header=New;
+		size++;
+		
+	}
+	
+public void AddLast(int dato){
+		
+		if(IsEmpty())
+			System.out.println("La Lista esta vacia");
+		
+		Node Aux=trailer;
+		Node New= new Node (null, null,0);
+		
+		New.setDato(dato);
+		New.setNextLast(Aux);
+		Aux.setNext(New);
+		trailer=New;
+		
+		size++;
+	}
 	public Node Search(int dato){
 		Node aux= new Node(null,null,0);
 		Node Find=new Node(null,null,0);
 		boolean encontrado=false;
 		aux= header;
-		while(aux !=null && encontrado!=true)
+		while(aux !=null && encontrado!=true){
 		
 			if(aux.getDato()==dato){
 				Find=aux;
@@ -103,10 +133,28 @@ public class SLinkedDoble {
 				}else{
 				aux=aux.getNext();
 				}
-			
+		}
 			return null;
 		}
 			
+	public int Searchs(int dato){
+		Node aux= new Node(null,null,0);
+		aux= header;
+		if(IsEmpty()){
+			System.out.println("La lista esta vacia");
+			return -1;
+		}
+		
+		for(int i=0;i<size;i++){
+			
+			if(aux.getDato()==dato){
+				return i;
+				}else{
+				aux=aux.getNext();
+				}
+		}
+			return -1;
+		}
 	public void CleanList(){
 		
 		header.setNext(null);
@@ -117,7 +165,7 @@ public class SLinkedDoble {
 		if(!IsEmpty()){
 			Node Aux= header;
 			int i=0;
-			while(Aux!=null){
+			while(i!=size){
 				System.out.println(i +"-> "+ "["+Aux.getDato()+"]");
 			Aux= Aux.getNext();
 			i++;
@@ -135,7 +183,23 @@ public class SLinkedDoble {
 			}
 	}
 	}
+	
+	public int SearchI(int dato)
+	{
+		if(IsEmpty()){
+			System.out.println("La Lista esta vacia");
+			return -1;
+		}
+			Node Aux= header;
 		
+			for(int i=0; i<size;i++){
+				if(i==dato){
+					return Aux.getDato();}
+				Aux= Aux.getNextLast();
+			}
+			return -1;
+	}
+	
 	public void InsertNewElementPerRefBefore(int dato,int ref){
 		
 		Node New= new Node(null,null,0);
@@ -198,9 +262,25 @@ public class SLinkedDoble {
 			aux.setNextLast(null);
 			size--;
 			System.out.println("El elemento ha sido elimindado");
+			return;
 		}else if(aux==trailer){
 			trailer=trailer.getNextLast();
+			aux.setNextLast(null);
 			aux.setNext(null);
-		}	
+			System.out.println("El elemento ha sido elimindado");
+			size--;
+			return;
+		}else {
+			Node Aux1= new Node(null,null,0);
+			Node Aux2= new Node(null,null,0);
+			Aux1=aux.getNextLast();
+			Aux2=aux.getNext();
+			aux.setNext(null);
+			aux.setNextLast(null);
+			Aux2.setNextLast(Aux1);
+			Aux1.setNext(Aux2);
+			size--;
+		}
+	
 	}
 	}
