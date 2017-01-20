@@ -11,7 +11,8 @@ public class Application {
 		ListDouble.addNode(1);
 		ListDouble.addNode(2);
 		ListDouble.addNode(3);
-		//ListDouble.ListarAdelante();
+		ListDouble.ListarAdelante();
+		System.out.println("\n");
 		ListDouble.ListarAtras();
 		
 		

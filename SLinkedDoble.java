@@ -136,7 +136,7 @@ public class SLinkedDoble {
 		if(!IsEmpty()){
 			Node Aux= trailer;
 			int i=0;
-			while(Aux.getNextLast()!=null){
+			while(i!=size){
 				System.out.println((size-i) + "-["+Aux.getDato()+"]"+"-> ");
 			Aux= Aux.getNextLast();
 			i++;
