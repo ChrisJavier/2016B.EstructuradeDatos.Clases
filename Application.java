@@ -14,7 +14,8 @@ public class Application {
 		ListDouble.ListarAdelante();
 		System.out.println("\n");
 		ListDouble.ListarAtras();
-		ListDouble.InsertNewElementPerRefBefore(5, 2);
+		ListDouble.InsertNewElementPerRefLast(5, 2);
+		//ListDouble.InsertNewElementPerRefBefore(5, 2);
 		//ListDouble.Remove(1);
 		
 		System.out.println("\n");

@@ -1,4 +1,3 @@
-import javax.imageio.IIOException;
 
 public class SLinkedDoble {
 	
@@ -172,28 +171,34 @@ public class SLinkedDoble {
 		
 		Node New= new Node(null,null,0);
 		Node Aux=header;
-		Node Aux1=new Node(null,null,0);
 		
 		for(int i=0;i<size;i++)
 			if(Aux.getDato()==ref){
 				New.setDato(dato);
-				New.setNextLast(Aux.getNextLast());
-				New.setNext(Aux);
-				Aux1.setNext(New);
-				Aux.setNextLast(New);
+				New.setNext(Aux.getNext());
+				New.setNextLast(Aux);
+				Aux.getNext().setNextLast(New);
+				Aux.setNext(New);
 				size++;
 				return;
 			}else{
-				Aux1=Aux;
+
 				Aux=Aux.getNext();
 				
 			}
 				
 	}
+	
+	public void EditNode(int dato, int ref)
+	{
+		Node Aux=Search(ref);
+		
+		Aux.setDato(dato);
+	}
+	
 	public void Remove(int dato){
 		
 		Node aux= Search(dato);
-		Node aux1= new Node(null,null,0);
 		
 		if(aux==null)
 			System.out.println("no existe el dato");
